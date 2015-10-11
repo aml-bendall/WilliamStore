@@ -111,7 +111,7 @@ h1#logo a { width: 226px; height: 26px; background: url('images/logo.png') no-re
 /* Content */
 #content .top { height: 13px; background: url('images/content-top.png') no-repeat 0 0; font-size: 0; line-height: 0; text-indent: -4000px; }
 #content .inner { background: url('images/content-bg.png') repeat-y 0 0; padding-left: 6px; padding-right: 4px; }
-#content #products { padding: 0 16px 31px 16px; background: url('images/products-bg.png') repeat-x 0 bottom; height: 100%; }
+#content #products { padding: 0 0px 31px 0px; background: url('images/products-bg.png') repeat-x 0 bottom; height: 100%; }
 #content h2 { font-size: 14px; color: #000; border-bottom: 1px solid #c1c1c1; line-height: 30px; margin-left: 2px; padding-top: 2px; height: 100%; }
 #content .row { border-bottom: 1px solid #b8b8b8; padding-bottom: 21px; padding-top: 18px; }
 #content .last { border: none; padding-top: 21px; }

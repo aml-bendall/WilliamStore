@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="VB" MasterPageFile="~/wsc.master" AutoEventWireup="false" CodeFile="wscHome.aspx.vb" Inherits="Default3" %>
+<%@ Import namespace="System.Data.OleDb" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -73,100 +74,73 @@
 					<!-- Begin Inner -->
 					<div class="inner">
 						<div id="products">
-							<h2>Newest Models</h2>
-							<!-- Begin Row -->
-							<div class="row">
-								<div class="product">
-									<div class="img-box">
-										<div class="box-frame">&nbsp;</div>
-										<img src="css/images/product-img1.jpg" alt="Product Image" />
-										<a href="#" class="more" title="View More">View More</a>
-									</div>
-									<div class="pr-entry">
-										<h4>Model name</h4>
-										<span class="pr-number">Product: 12</span>
-										<p>Nunc et eros felis. Donec ullamcorper faucibus lectus, dictum eleifend justo eleif-end non. Mauris venenatis lorem tincidunt neque imperdiet molestie sit amet dictum purus.</p>
-										<span class="pr-price"><span>$</span>1999<sup>.99</sup></span>
-									</div>
-								</div>
-								<div class="product">
-									<div class="img-box">
-										<div class="box-frame">&nbsp;</div>
-										<img src="css/images/product-img2.jpg" alt="Product Image" />
-										<a href="#" class="more" title="View More">View More</a>
-									</div>
-									<div class="pr-entry">
-										<h4>Model name</h4>
-										<span class="pr-number">Product: 24</span>
-										<p>Nunc et eros felis. Donec ullamcorper faucibus lectus, dictum eleifend justo eleif-end non. Mauris venenatis lorem tincidunt neque imperdiet molestie sit amet dictum purus.</p>
-										<span class="pr-price"><span>$</span>1399<sup>.99</sup></span>
-									</div>
-								</div>
-								<div class="product pr-last">
-									<div class="img-box">
-										<div class="box-frame">&nbsp;</div>
-										<img src="css/images/product-img3.jpg" alt="Product Image" />
-										<a href="#" class="more" title="View More">View More</a>
-									</div>
-									<div class="pr-entry">
-										<h4>Model name</h4>
-										<span class="pr-number">Product: 33</span>
-										<p>Nunc et eros felis. Donec ullamcorper faucibus lectus, dictum eleifend justo eleif-end non. Mauris venenatis lorem tincidunt neque imperdiet molestie sit amet dictum purus.</p>
-										<span class="pr-price"><span>$</span>1299<sup>.99</sup></span>
-									</div>
-								</div>
-								<div class="cl">&nbsp;</div>
-							</div>
-							<!-- End Row -->
-							<!-- Begin Row -->
-							<div class="row last">
-								<div class="product">
-									<div class="img-box">
-										<div class="box-frame">&nbsp;</div>
-										<img src="css/images/product-img4.jpg" alt="Product Image" />
-										<a href="#" class="more" title="View More">View More</a>
-									</div>
-									<div class="pr-entry">
-										<h4>Model name</h4>
-										<span class="pr-number">Product: 41</span>
-										<p>Nunc et eros felis. Donec ullamcorper faucibus lectus, dictum eleifend justo eleif-end non. Mauris venenatis lorem tincidunt neque imperdiet molestie sit amet dictum purus.</p>
-										<span class="pr-price"><span>$</span>2999<sup>.99</sup></span>
-									</div>
-								</div>
-								<div class="product">
-									<div class="img-box">
-										<div class="box-frame">&nbsp;</div>
-										<img src="css/images/product-img5.jpg" alt="Product Image" />
-										<a href="#" class="more" title="View More">View More</a>
-									</div>
-									<div class="pr-entry">
-										<h4>Model name</h4>
-										<span class="pr-number">Product: 2</span>
-										<p>Nunc et eros felis. Donec ullamcorper faucibus lectus, dictum eleifend justo eleif-end non. Mauris venenatis lorem tincidunt neque imperdiet molestie sit amet dictum purus.</p>
-										<span class="pr-price"><span>$</span>3999<sup>.99</sup></span>
-									</div>
-								</div>
-								<div class="product pr-last">
-									<div class="img-box">
-										<div class="box-frame">&nbsp;</div>
-										<img src="css/images/product-img6.jpg" alt="Product Image" />
-										<a href="#" class="more" title="View More">View More</a>
-									</div>
-									<div class="pr-entry">
-										<h4>Model name</h4>
-										<span class="pr-number">Product: 9</span>
-										<p>Nunc et eros felis. Donec ullamcorper faucibus lectus, dictum eleifend justo eleif-end non. Mauris venenatis lorem tincidunt neque imperdiet molestie sit amet dictum purus.</p>
-										<span class="pr-price"><span>$</span>1599<sup>.99</sup></span>
-									</div>
-								</div>
-								<div class="cl">&nbsp;</div>
-							</div>
-							<!-- End Row -->
+							<h2>Our Products</h2>
+                           <% 
+                               Dim connect As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data source=C:\Users\Demystify\Desktop\WilliamStore\WebSite2\TeamA_WSC_Website_Database.accdb;User ID=Admin;Password=;"
+                               Dim query As String = "Select * from items"
+                               Using conn As New OleDbConnection(connect)
+                                   Using cmd As New OleDbCommand(query, conn)
+                                       conn.Open()
+                                       Dim reader As OleDbDataReader = cmd.ExecuteReader()
+                                       Dim count As Int32 = 1
+                                       Dim EndDiv As String = "N"
+                                       While reader.Read()
+                                           If (count Mod 3) = 1 Or count = 1 Then %>
+                                                <!-- Begin Row -->
+                                                <div class="row">
+                                           <% EndDiv = "Y"
+                        End If %>
+								                    <div class="product">
+									                    <div class="img-box">
+										                    <div class="box-frame">&nbsp;</div>
+										                    <img src = "css/images/product-img1.jpg" alt="Product Image" />
+										                    <a href = "/AddToCart.aspx?productID=<%=reader.GetInt32(0) %>" class="more" title="Add To Cart">Add To Cart</a>
+									                    </div>
+									                    <div class="pr-entry">
+										                    <h4><%=reader.GetString(5) %></h4>
+										                    <span class="pr-number">Qty Remaining: <%=reader.GetInt32(3) %></span>
+										                    <p> <%=reader.GetString(1) %></p>
+										                    <span class="pr-price"><span>$</span><%=reader.GetDecimal(2)%></span>
+									                    </div>
+								                    </div>
+								                    
+							                  <%If (count Mod 3) = 0 Then %>  
+                                                    <div class="cl">&nbsp;</div>
+                                                </div>
+							                    <!-- End Row -->
+                                                
+                                    <%          EndDiv = "N"
+                                            End If
+                                            count = count + 1
+                                        End While
+                                        reader.Close()
+                                        conn.Close()
+                                        If EndDiv = "Y" Then
+                                                    %>
+                                        <div class="cl">&nbsp;</div>
+                                </div>
+                           <%
+                                End If
+                            End Using
+                        End Using
+                           %>
 						</div>
 					</div>
 					<!-- End Inner -->
 				</div>
 				<!-- End Content -->
 			</div>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="MainContent" Runat="Server">
+
+    <asp:Panel runat="server" ID="AuthenticatedMessagePanel">
+        <asp:Label runat="server" ID="WelcomeBackMessage"></asp:Label>
+    </asp:Panel>
+    
+    <asp:Panel runat="Server" ID="AnonymousMessagePanel">
+        <asp:HyperLink runat="server" ID="lnkLogin" Text="Log In" NavigateUrl="~/Login.aspx"></asp:HyperLink>
+    </asp:Panel>
+
 </asp:Content>
 

@@ -54,6 +54,37 @@
 				</ul>
 				<div class="cl">&nbsp;</div>
 			</div>
+
+        <asp:ContentPlaceHolder id="Login" runat="server">
+            <div id="Div1">
+
+        <form id="form1" runat="server">
+            <div id="content">
+                <asp:contentplaceholder id="MainContent" runat="server">
+                </asp:contentplaceholder>
+            </div>
+            
+            <div id="Div3">
+                <asp:ContentPlaceHolder ID="LoginContent" runat="server">
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <LoggedInTemplate>
+                            Welcome back,
+                            <asp:LoginName ID="LoginName1" runat="server" />.
+                        </LoggedInTemplate>
+                        <AnonymousTemplate>
+                            Hello, stranger.
+                        </AnonymousTemplate>
+                    </asp:LoginView>
+                    <br />
+                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/Logout.aspx" />
+                    <br /><br />
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+    </div>
+
+        </asp:ContentPlaceHolder>
+
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
