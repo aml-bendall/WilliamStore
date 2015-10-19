@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/wsc.master" AutoEventWireup="false" CodeFile="wscHome.aspx.vb" Inherits="Default3" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="wsc.master" AutoEventWireup="false" CodeFile="wscHome.aspx.vb" Inherits="Default3" %>
 <%@ Import namespace="System.Data.OleDb" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
@@ -12,29 +12,29 @@
 					<div class="slider-items">
 						<ul>
 							<li>
-								<img src="css/images/slide-img1.jpg" alt="First Slide Image" />
+								<img src="css/images/engraving.jpg" alt="First Slide Image" />
 								<div class="slide-entry">
 									<h2>CUSTOM ENGRAVING</h2>
-									<h3>Donec ac lorem ac ligula</h3>
-									<p>Vivamus in enim eros, ut mattis nibh. Nullam orci urna, tristique ut vulputate at, accumsan nec nibh. Nunc accumsan nulla vitae mauris suscipit consequat. Aliquam erat volutpat. Sed pretium consequat erat porttitor scelerisque. Morbi vitae felis elit. Quisque sed pharetra sem.</p>
+									<h3>Any image can be created quickly and accurately</h3>
+									<p>Our Engraving is the best in the business. We can fulfill any custom business need and complete the job in a timely manner. Place an order and our Sales team will get in touch quickly!</p>
 									<a href="#" class="more" title="Learn More">Learn More</a>
 								</div>
 							</li>
 							<li>
-								<img src="css/images/slide-img1.jpg" alt="Second Slide Image" />
+								<img src="css/images/bc.jpg" alt="Second Slide Image" />
 								<div class="slide-entry">
-									<h2>Donec ac lorem ac</h2>
-									<h3>Donec ac lorem ac ligula</h3>
-									<p>Vivamus in enim eros, ut mattis nibh. Nullam orci urna, tristique ut vulputate at, accumsan nec nibh. Nunc accumsan nulla vitae mauris suscipit consequat. Aliquam erat volutpat. Sed pretium consequat erat porttitor scelerisque. Morbi vitae felis elit. Quisque sed pharetra sem.</p>
+									<h2>Custom Printing</h2>
+									<h3>Business Cards, presentations, and more</h3>
+									<p>We can help your business reach the next level with custom printing. Place an order now!</p>
 									<a href="#" class="more" title="Learn More">Learn More</a>
 								</div>
 							</li>
 							<li>
-								<img src="css/images/slide-img1.jpg" alt="Third Slide Image" />
+								<img src="css/images/partner.jpg" alt="Third Slide Image" />
 								<div class="slide-entry">
-									<h2>Donec ac lorem ac</h2>
-									<h3>Donec ac lorem ac ligula</h3>
-									<p>Vivamus in enim eros, ut mattis nibh. Nullam orci urna, tristique ut vulputate at, accumsan nec nibh. Nunc accumsan nulla vitae mauris suscipit consequat. Aliquam erat volutpat. Sed pretium consequat erat porttitor scelerisque. Morbi vitae felis elit. Quisque sed pharetra sem.</p>
+									<h2>Trusted, valued, and an Industry Leader</h2>
+									<h3>Gain a valuable business partner today!</h3>
+									<p>We value you as a customer and will make sure that you are 100% satisfied with our product. We do not look to fulfill orders once. We look to build partnerships for years to come.</p>
 									<a href="#" class="more" title="Learn More">Learn More</a>
 								</div>
 							</li>
@@ -47,19 +47,19 @@
 						<ul>
 							<li class="first">
 								<a href="#" title="First Slide">
-									<span><img src="css/images/slide-nav-img1.jpg" alt="First Slide Image" /></span>
+									<span><img src="css/images/engraving2.jpg" alt="First Slide Image" /></span>
 								</a>
 								<span class="slide-sep">&nbsp;</span>
 							</li>
 							<li>
 								<a href="#" title="Second Slide">
-									<span><img src="css/images/slide-nav-img2.jpg" alt="Second Slide Image" /></span>
+									<span><img src="css/images/bc2.jpg" alt="Second Slide Image" /></span>
 								</a>
 								<span class="slide-sep">&nbsp;</span>
 							</li>
 							<li class="last">
 								<a href="#" title="Third Slide">
-									<span><img src="css/images/slide-nav-img3.jpg" alt="Third Slide Image" /></span>
+									<span><img src="css/images/partner2.jpg" alt="Third Slide Image" /></span>
 								</a>
 							</li>
 						</ul>
@@ -92,8 +92,7 @@
                         End If %>
 								                    <div class="product">
 									                    <div class="img-box">
-										                    <div class="box-frame">&nbsp;</div>
-										                    <img src = "css/images/product-img1.jpg" alt="Product Image" />
+										                    <img src = "css/images/engraving3.jpg" alt="Product Image" />
 										                    <a href = "/AddToCart.aspx?productID=<%=reader.GetInt32(0) %>" class="more" title="Add To Cart">Add To Cart</a>
 									                    </div>
 									                    <div class="pr-entry">
